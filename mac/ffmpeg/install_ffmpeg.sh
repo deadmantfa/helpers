@@ -5,6 +5,11 @@ if ! command -v brew &> /dev/null
 then
     echo "Homebrew is not installed. Installing Homebrew now..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    # Add Homebrew to the PATH
+    echo 'Adding Homebrew to the PATH...'
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/rajasthanstudio/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # Install FFmpeg
