@@ -8,16 +8,21 @@ then
 
     # Add Homebrew to the PATH
     echo 'Adding Homebrew to the PATH...'
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/rajasthanstudio/.zprofile
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# Install FFmpeg
-echo "Installing FFmpeg..."
-brew install ffmpeg
+# Check if FFmpeg is installed
+if ! command -v ffmpeg &> /dev/null
+then
+    echo "FFmpeg is not installed. Installing FFmpeg now..."
+    brew install ffmpeg
 
-# Enable FFmpeg to start at login
-brew services start ffmpeg
+    # Enable FFmpeg to start at login
+    brew services start ffmpeg
+else
+    echo "FFmpeg is already installed."
+fi
 
 # Update Homebrew and FFmpeg
 echo "Updating Homebrew and FFmpeg..."
