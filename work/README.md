@@ -34,18 +34,19 @@ Folder Name
 
 The script will create an output directory with the following structure:
 ```
-output
- - Folder Name
-   - Chapter 1
-     -- Content 1
-        --- Final Output File
-     -- Content 2
-        --- Final Output File
-   - Chapter 2
-     -- Content 1
-        --- Final Output File
-     -- Content 2
-        --- Final Output File
+Folder Name
+ - output
+   - Folder Name
+     - Chapter 1
+       -- Content 1
+          --- Final Output File
+       -- Content 2
+          --- Final Output File
+     - Chapter 2
+       -- Content 1
+          --- Final Output File
+       -- Content 2
+          --- Final Output File
 ```
 
 ## Installation

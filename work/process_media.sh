@@ -30,7 +30,7 @@ main_dir=$1
 drive_folder_id=$2
 
 # Output directory
-output_dir="output/$main_dir"
+output_dir="$main_dir/output/$(basename "$main_dir")"
 
 # Check if directory exists
 if [ ! -d "$main_dir" ]; then
@@ -70,8 +70,8 @@ done
 # Check if drive_folder_id is provided
 if [ -z "$drive_folder_id" ]; then
     # Upload the entire output directory to Google Drive root
-    gdrive upload --recursive "$output_dir"
+    gdrive files upload --recursive "$output_dir"
 else
     # Upload the entire output directory to the specified Google Drive folder
-    gdrive upload --parent "$drive_folder_id" --recursive "$output_dir"
+    gdrive files upload --parent "$drive_folder_id" --recursive "$output_dir"
 fi
